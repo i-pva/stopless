@@ -1,4 +1,6 @@
 # stopless
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/i-pva/stopless/blob/master/LICENSE)
+[![Go Report Card](https://goreportcard.com/badge/github.com/i-pva/stopless)](https://goreportcard.com/report/github.com/i-pva/stopless)
 
 Server has some useful methods for performing graceful 
 shutdown.
