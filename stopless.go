@@ -21,6 +21,7 @@ var notifySignals = []os.Signal{
 
 type Server struct {
 	http.Server
+	context.Context
 	signalHooks         map[os.Signal]func()
 	customNotifySignals []os.Signal
 	terminationPeriod   time.Duration
@@ -95,7 +96,12 @@ func (srv *Server) shutdown() error {
 	if srv.terminationPeriod == 0 {
 		srv.terminationPeriod = 30 * time.Second
 	}
-	ctx, cancel := context.WithTimeout(context.Background(), srv.terminationPeriod)
+
+	if srv.Context == nil {
+		srv.Context = context.Background()
+	}
+
+	ctx, cancel := context.WithTimeout(srv.Context, srv.terminationPeriod)
 	defer cancel()
 	err := srv.Server.Shutdown(ctx)
 	if err != nil {
