@@ -12,6 +12,7 @@ import (
 )
 
 func main() {
+
     // Create server
     server := &stopless.Server{
 		Server : http.Server{
@@ -22,6 +23,7 @@ func main() {
 
 	// Run server
     panic(server.ListenAndServe())
+
 }
 ```
 [License](LICENSE)
