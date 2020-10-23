@@ -15,14 +15,17 @@ func main() {
 
     // Create server
     server := &stopless.Server{
-		Server : http.Server{
-			Addr:    ":8080",
-			Handler: http.NewServeMux(),
-		},
-	}
-
-	// Run server
-    panic(server.ListenAndServe())
+        Server : http.Server{
+            Addr:    ":8080",
+            Handler: http.NewServeMux(),
+        },
+    }
+	
+    // Run server
+    err := server.ListenAndServe()
+    if err != nil {
+        panic(err)
+    }
 
 }
 ```

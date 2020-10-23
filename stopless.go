@@ -35,7 +35,7 @@ func (srv *Server) ListenAndServe() error {
 			return err
 		}
 	}
-	return err
+	return nil
 }
 
 func (srv *Server) ListenAndServeTLS(certFile, keyFile string) error {
@@ -46,7 +46,7 @@ func (srv *Server) ListenAndServeTLS(certFile, keyFile string) error {
 			return err
 		}
 	}
-	return err
+	return nil
 }
 
 func (srv *Server) restart() error {
