@@ -107,5 +107,5 @@ func (srv *Server) shutdown() error {
 	if err != nil {
 		return fmt.Errorf("shutdown error: %v\n", err)
 	}
-	return srv.Server.Shutdown(ctx)
+	return nil
 }
